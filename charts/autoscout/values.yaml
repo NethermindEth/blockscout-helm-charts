@@ -18,18 +18,17 @@ config:
   logLevel: info
   logLokiHost: http://loki.host:65535
   database:
-    # host:
-    # port:
-    # dbname:
-    # user:
-    # password:
-    # options:
-    ## If a secret with the database credentials already exists, use the following values:
-    # existingSecret:
-    # existingSecretUsernameKey:
-    # existingSecretPasswordKey:
+    host: ""
+    port: 5432
+    dbname: ""
+    username: ""
+    password: ""
+    options: ""
+    existingSecret: ""
+    existingSecretUsernameKey: "username"
+    existingSecretPasswordKey: "password"
   github:
-    token:
+    token: "default-token"
     owner:
     repo:
     branch:

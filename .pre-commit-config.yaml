@@ -1,37 +1,22 @@
 repos:
-  - repo: local
+  - repo: https://github.com/norwoodj/helm-docs
+    rev: v1.13.1
     hooks:
       - id: helm-docs
         name: Helm Docs
-        args: []
-        description: >
-          Uses 'helm-docs' to create documentation from the Helm chart's 'values.yaml' file,
-          and inserts the result into a corresponding 'README.md' file.
-        entry: jnorwood/helm-docs:v1.5.0
-        files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
-        language: docker_image
-        require_serial: true
+        args:
+          - --chart-search-root=charts
 
-      - id: helm-lint
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.23
+    hooks:
+      - id: helmlint
         name: Helm Lint
-        entry: bash -c 'for chart in charts/*; do if [ -f "$chart/Chart.yaml" ]; then helm lint "$chart"; fi; done'
-        language: system
-        types: [yaml]
-        files: charts/.*\.yaml$
-        description: Lint Helm charts using helm lint
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
       - id: trailing-whitespace
-        name: Trim Trailing Whitespace
-        description: Trims trailing whitespace.
-        types: [text]
       - id: end-of-file-fixer
-        name: Fix End of Files
-        description: Ensures that a file is either empty, or ends with one newline.
-        types: [text]
       - id: mixed-line-ending
-        name: Fix Line Endings
-        description: Replaces or checks mixed line ending.
-        types: [text]
+        args: [--fix=lf]
