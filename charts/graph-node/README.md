@@ -4,6 +4,13 @@
 
 A Helm chart for Kubernetes to run graph-node
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Values
 
 | Key | Type | Default | Description |

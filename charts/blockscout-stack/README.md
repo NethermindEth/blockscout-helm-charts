@@ -4,6 +4,13 @@
 
 A Helm chart to deploy Blockscout stack
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Values
 
 | Key | Type | Default | Description |

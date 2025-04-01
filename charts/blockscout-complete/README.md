@@ -4,6 +4,13 @@
 
 A Helm chart that combines Blockscout stack with Smart Contract Verification services
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Requirements
 
 | Repository | Name | Version |

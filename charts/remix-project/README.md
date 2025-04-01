@@ -4,6 +4,13 @@
 
 A Helm chart to run Remix Project
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Values
 
 | Key | Type | Default | Description |

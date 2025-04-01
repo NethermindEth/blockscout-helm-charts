@@ -4,6 +4,13 @@
 
 Prometheus exporter which allows collecting metrics from database queries, at specified time intervals
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Values
 
 | Key | Type | Default | Description |

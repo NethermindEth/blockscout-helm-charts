@@ -4,6 +4,13 @@
 
 A Helm chart for Blockscout admin services - admin-rs, admin-ts, contracts-info, metadata, token-info-extractor
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
 ## Values
 
 | Key | Type | Default | Description |
