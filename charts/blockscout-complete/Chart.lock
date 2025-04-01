@@ -1,9 +1,9 @@
 dependencies:
 - name: blockscout-stack
   repository: file://../blockscout-stack
-  version: 2.0.2
+  version: 2.0.3
 - name: smart-contract-verification
   repository: file://../smart-contract-verification
-  version: 0.1.0
-digest: sha256:e82cf736b1848c741d8a311ed7ef4fbc4f244bb9b7a4ae018e2623d4b6779750
-generated: "2025-03-18T18:21:45.970471+11:00"
+  version: 0.1.1
+digest: sha256:2745da66c0c9c41a061fc6494dbbf4c1e67333b5cd852f4f109d7fe7ead1d802
+generated: "2025-04-01T17:02:36.862249+02:00"
