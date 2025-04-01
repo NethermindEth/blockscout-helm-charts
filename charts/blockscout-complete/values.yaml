@@ -6,7 +6,7 @@ blockscout-stack:
   enabled: true
   # Override values for blockscout-stack chart
   # For detailed configuration options, refer to the original blockscout-stack chart
-  
+
   # Network configuration
   config:
     network:
@@ -33,7 +33,7 @@ blockscout-stack:
       blackbox:
         enabled: true
         path: /api/health
-  
+
   # Blockscout backend configuration
   blockscout:
     enabled: true
@@ -42,7 +42,7 @@ blockscout-stack:
       repository: blockscout/blockscout
       pullPolicy: IfNotPresent
       tag: "latest"
-    
+
     # Integration with verification services
     extraEnv:
       - name: VERIFY_WITH_ETHBYTECODE_DB_ENABLED
@@ -55,12 +55,12 @@ blockscout-stack:
         value: "$(RELEASE_NAME)-smart-contract-verification-verifier:8051"
       - name: ETH_BYTECODE_DB_URL
         value: "http://$(RELEASE_NAME)-smart-contract-verification-eth-bytecode-db:8050"
-    
+
     # Configure service for Blockscout
     service:
       type: ClusterIP
       port: 80
-    
+
     # Configure ingress for Blockscout
     ingress:
       enabled: true
@@ -84,7 +84,7 @@ blockscout-stack:
           pathType: Exact
         - path: /auth/logout
           pathType: Exact
-  
+
   # Frontend configuration
   frontend:
     enabled: true
@@ -93,17 +93,17 @@ blockscout-stack:
       repository: ghcr.io/blockscout/frontend
       tag: latest
       pullPolicy: IfNotPresent
-    
+
     # Frontend environment variables for verification integration
     extraEnv:
       - name: NEXT_PUBLIC_VERIFICATION_MICROSERVICE_URL
         value: "https://$(RELEASE_NAME)-smart-contract-verification-verifier:8050"
-    
+
     # Configure service for Frontend
     service:
       type: ClusterIP
       port: 80
-    
+
     # Configure ingress for Frontend
     ingress:
       enabled: true
@@ -119,7 +119,7 @@ blockscout-stack:
   # Stats configuration
   stats:
     enabled: false
-  
+
   # User-Ops Indexer configuration
   userOpsIndexer:
     enabled: false
@@ -128,7 +128,7 @@ smart-contract-verification:
   enabled: true
   # Override values for smart-contract-verification chart
   # For detailed configuration options, refer to the original smart-contract-verification chart
-  
+
   # Sig Provider configuration
   sigProvider:
     replicaCount: 2
@@ -136,12 +136,12 @@ smart-contract-verification:
       repository: ghcr.io/blockscout/sig-provider
       pullPolicy: IfNotPresent
       tag: "latest"
-    
+
     # Configure service for Sig Provider
     service:
       type: ClusterIP
       port: 8043
-    
+
     # Configure ingress for Sig Provider
     ingress:
       enabled: true
@@ -150,7 +150,7 @@ smart-contract-verification:
       hostname: sig-provider.example.com
       tls:
         enabled: true
-  
+
   # Smart Contract Verifier configuration
   smartContractVerifier:
     replicaCount: 2
@@ -158,12 +158,12 @@ smart-contract-verification:
       repository: ghcr.io/blockscout/smart-contract-verifier
       pullPolicy: IfNotPresent
       tag: "latest"
-    
+
     # Configure service for Smart Contract Verifier
     service:
       type: ClusterIP
       port: 8050
-    
+
     # Configure ingress for Smart Contract Verifier
     ingress:
       enabled: true
@@ -172,7 +172,7 @@ smart-contract-verification:
       hostname: verifier.example.com
       tls:
         enabled: true
-    
+
     # Configure grpc service
     grpc:
       enabled: true
@@ -184,7 +184,7 @@ smart-contract-verification:
         hostname: grpc-verifier.example.com
         tls:
           enabled: true
-  
+
   # Eth Bytecode DB configuration
   ethBytecodeDb:
     enabled: true
@@ -193,12 +193,12 @@ smart-contract-verification:
       repository: ghcr.io/blockscout/eth-bytecode-db
       pullPolicy: IfNotPresent
       tag: "latest"
-    
+
     # Configure service for Eth Bytecode DB
     service:
       type: ClusterIP
       port: 8050
-    
+
     # Configure ingress for Eth Bytecode DB
     ingress:
       enabled: true
@@ -207,7 +207,7 @@ smart-contract-verification:
       hostname: bytecode-db.example.com
       tls:
         enabled: true
-    
+
     # Environment variables for integrating with other services
     extraEnv:
       - name: ETH_BYTECODE_DB__SERVER__HTTP__ADDR
@@ -220,4 +220,4 @@ global:
   # Add any global configurations here if needed
   imagePullSecrets: []
   nameOverride: ""
-  fullnameOverride: "" 
+  fullnameOverride: ""

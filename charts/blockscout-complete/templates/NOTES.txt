@@ -34,4 +34,4 @@ For more information, please refer to the documentation:
 https://github.com/blockscout/blockscout-helm-charts/tree/main/charts/blockscout-complete
 
 To get all deployed resources:
-  kubectl get all -l app.kubernetes.io/instance={{ .Release.Name }} 
+  kubectl get all -l app.kubernetes.io/instance={{ .Release.Name }}
