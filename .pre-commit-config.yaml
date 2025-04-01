@@ -12,6 +12,14 @@ repos:
         language: docker_image
         require_serial: true
 
+      - id: helm-lint
+        name: Helm Lint
+        entry: bash -c 'for chart in charts/*; do if [ -f "$chart/Chart.yaml" ]; then helm lint "$chart"; fi; done'
+        language: system
+        types: [yaml]
+        files: charts/.*\.yaml$
+        description: Lint Helm charts using helm lint
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
