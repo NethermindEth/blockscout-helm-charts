@@ -1,0 +1,38 @@
+extends: default
+
+rules:
+  # Allow longer lines
+  line-length:
+    max: 200
+    level: warning
+
+  # accept both     key:
+  #                   - item
+  #
+  # and             key:
+  #                 - item
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+
+  # don't bother me with these rules
+  comments: disable
+  comments-indentation: disable
+
+  # don't bother me with this rule
+  empty-lines:
+    max: 2
+    max-start: 2
+    max-end: 2
+
+  trailing-spaces: enable
+
+  new-line-at-end-of-file: enable
+
+  document-start: disable
+
+ignore: |
+  # Ignore packaged charts
+  charts/*/charts/*.tgz
+  # Ignore GitHub workflows
+  .github/

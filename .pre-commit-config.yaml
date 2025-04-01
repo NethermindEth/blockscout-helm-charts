@@ -11,3 +11,19 @@ repos:
         files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
         language: docker_image
         require_serial: true
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        description: Trims trailing whitespace.
+        types: [text]
+      - id: end-of-file-fixer
+        name: Fix End of Files
+        description: Ensures that a file is either empty, or ends with one newline.
+        types: [text]
+      - id: mixed-line-ending
+        name: Fix Line Endings
+        description: Replaces or checks mixed line ending.
+        types: [text]
