@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "blockscout-complete.fullname" . }}-integration
+  labels:
+    {{- include "blockscout-complete.labels" . | nindent 4 }}
+data:
+  {{- if and (index .Values "blockscout-stack" "enabled") (index .Values "smart-contract-verification" "enabled") }}
+  # This config map contains recommended environment variables to connect 
+  # Blockscout with Smart Contract Verification services
+  README.md: |
+    # Integration Configuration
+    
+    This ConfigMap provides recommended environment variables to connect Blockscout with Smart Contract Verification services.
+    
+    ## How to use
+    
+    Add the following environment variables to your Blockscout deployment:
+    
+    ```yaml
+    extraEnv:
+      - name: VERIFY_WITH_ETHBYTECODE_DB_ENABLED
+        value: "true"
+      - name: SMART_CONTRACT_VERIFIER_ENABLED
+        value: "true"
+      - name: SMART_CONTRACT_VERIFIER_URL
+        value: "http://RELEASE_NAME-smart-contract-verification-verifier:8050"
+      - name: SMART_CONTRACT_VERIFIER_GRPC_URL
+        value: "RELEASE_NAME-smart-contract-verification-verifier:8051"
+      - name: ETH_BYTECODE_DB_URL
+        value: "http://RELEASE_NAME-smart-contract-verification-eth-bytecode-db:8050"
+    ```
+    
+    These variables ensure that Blockscout uses the Smart Contract Verification services deployed by this chart.
+  {{- end }} 
