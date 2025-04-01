@@ -8,8 +8,8 @@ A Helm chart that combines Blockscout stack with Smart Contract Verification ser
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../blockscout-stack | blockscout-stack | 2.0.2 |
-| file://../smart-contract-verification | smart-contract-verification | 0.1.0 |
+| file://../blockscout-stack | blockscout-stack | 2.0.3 |
+| file://../smart-contract-verification | smart-contract-verification | 0.1.1 |
 
 ## Values
 

@@ -13,10 +13,10 @@ appVersion: "1.0.0"
 # Dependencies
 dependencies:
   - name: blockscout-stack
-    version: "2.0.2"
+    version: "2.0.3"
     repository: "file://../blockscout-stack"
     condition: blockscout-stack.enabled
   - name: smart-contract-verification
-    version: "0.1.0"
+    version: "0.1.1"
     repository: "file://../smart-contract-verification"
     condition: smart-contract-verification.enabled 
