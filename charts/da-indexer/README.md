@@ -1,6 +1,6 @@
-# yopass
+# da-indexer
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.5.1](https://img.shields.io/badge/AppVersion-11.5.1-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -9,10 +9,10 @@ A Helm chart for Kubernetes
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| config.maxMessage | string | `"4194304"` |  |
+| config.routes | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"jhaals/yopass"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"ghcr.io/blockscout/da-indexer"` |  |
 | image.tag | string | `"latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
@@ -22,25 +22,28 @@ A Helm chart for Kubernetes
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
-| memcached.image.pullPolicy | string | `"Always"` |  |
-| memcached.image.repository | string | `"memcached"` |  |
-| memcached.image.tag | string | `"latest"` |  |
+| livenessProbe.httpGet.path | string | `"/health"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
-| podSecurityContext.fsGroup | int | `2000` |  |
+| podLabels | object | `{}` |  |
+| podSecurityContext.fsGroup | int | `1000` |  |
+| readinessProbe.httpGet.path | string | `"/health"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"200m"` |  |
-| resources.limits.memory | string | `"256Mi"` |  |
-| resources.requests.cpu | string | `"100m"` |  |
-| resources.requests.memory | string | `"128Mi"` |  |
+| resources.limits.cpu | string | `"500m"` |  |
+| resources.limits.memory | string | `"512Mi"` |  |
+| resources.requests.cpu | string | `"250m"` |  |
+| resources.requests.memory | string | `"256Mi"` |  |
 | securityContext.capabilities.drop[0] | string | `"ALL"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `true` |  |
 | securityContext.runAsNonRoot | bool | `true` |  |
 | securityContext.runAsUser | int | `1000` |  |
-| service.port | int | `1337` |  |
+| service.port | int | `8050` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.automount | bool | `true` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tolerations | list | `[]` |  |

@@ -1,18 +1,23 @@
-# remix-project
+# tracker
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
-A Helm chart to run Remix Project
+A Helm chart for Kubernetes
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| config.clickhouse.host | string | `nil` |  |
+| config.clickhouse.password | string | `nil` |  |
+| config.clickhouse.user | string | `nil` |  |
+| config.redis.host | string | `nil` |  |
+| config.redis.port | int | `6379` |  |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/blockscout/remix-project"` |  |
-| image.tag | string | `"latest"` |  |
+| image.pullPolicy | string | `"Always"` |  |
+| image.repository | string | `"ghcr.io/blockscout/tracker"` |  |
+| image.tag | string | `"main"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -21,18 +26,22 @@ A Helm chart to run Remix Project
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| livenessProbe.httpGet.path | string | `"/healthz"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| readinessProbe.httpGet.path | string | `"/healthz"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"200m"` |  |
-| resources.limits.memory | string | `"256Mi"` |  |
-| resources.requests.cpu | string | `"100m"` |  |
-| resources.requests.memory | string | `"128Mi"` |  |
+| resources.limits.cpu | string | `"500m"` |  |
+| resources.limits.memory | string | `"512Mi"` |  |
+| resources.requests.cpu | string | `"200m"` |  |
+| resources.requests.memory | string | `"256Mi"` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `3001` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |

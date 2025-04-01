@@ -1,8 +1,8 @@
-# remix-project
+# chainscout
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
-A Helm chart to run Remix Project
+A Helm chart for Kubernetes
 
 ## Values
 
@@ -11,7 +11,7 @@ A Helm chart to run Remix Project
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/blockscout/remix-project"` |  |
+| image.repository | string | `"ghcr.io/blockscout/chainscout"` |  |
 | image.tag | string | `"latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
@@ -21,18 +21,28 @@ A Helm chart to run Remix Project
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| livenessProbe.httpGet.path | string | `"/"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
+| livenessProbe.initialDelaySeconds | int | `120` |  |
+| livenessProbe.periodSeconds | int | `10` |  |
+| livenessProbe.timeoutSeconds | int | `5` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| readinessProbe.httpGet.path | string | `"/"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
+| readinessProbe.initialDelaySeconds | int | `90` |  |
+| readinessProbe.periodSeconds | int | `10` |  |
+| readinessProbe.timeoutSeconds | int | `5` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"200m"` |  |
-| resources.limits.memory | string | `"256Mi"` |  |
+| resources.limits.cpu | string | `"500m"` |  |
+| resources.limits.memory | string | `"1Gi"` |  |
 | resources.requests.cpu | string | `"100m"` |  |
 | resources.requests.memory | string | `"128Mi"` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `3000` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |

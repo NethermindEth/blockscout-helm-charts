@@ -1,18 +1,21 @@
-# remix-project
+# eth-tx-summary-api
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square)
 
-A Helm chart to run Remix Project
+A Helm chart for Kubernetes
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| config.env | string | `"dev"` |  |
+| config.logLevel | string | `"debug"` |  |
+| envFromSecret | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/blockscout/remix-project"` |  |
-| image.tag | string | `"latest"` |  |
+| image.repository | string | `"ghcr.io/blockscout/eth-tx-summary-api"` |  |
+| image.tag | string | `"main"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -21,18 +24,18 @@ A Helm chart to run Remix Project
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| metrics.enabled | bool | `false` |  |
+| metrics.port | int | `9105` |  |
+| metrics.prometheus.enabled | bool | `false` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"200m"` |  |
-| resources.limits.memory | string | `"256Mi"` |  |
-| resources.requests.cpu | string | `"100m"` |  |
-| resources.requests.memory | string | `"128Mi"` |  |
+| resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `3000` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |

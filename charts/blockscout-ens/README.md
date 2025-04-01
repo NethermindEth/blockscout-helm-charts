@@ -1,49 +1,69 @@
 # blockscout-ens
 
-A Helm chart to deploy Blockscout ENC application to kubernetes cluster
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.3](https://img.shields.io/badge/AppVersion-1.5.3-informational?style=flat-square)
 
-## Prerequisites
+A Helm chart to deploy Blockscout ens
 
-- Kubernetes 1.19+
-- Helm 3+
-<!-- - PostgreSQL version 12 to 14
-- Redis (if accounts blockscout feature is enabled) -->
+## Values
 
-## Get Helm Repository Info
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| bens.config.databaseCredsSecretName | string | `"user.server-postgresql.credentials.postgresql.acid.zalan.do"` |  |
+| bens.config.databaseHost | string | `"postgresql"` |  |
+| bens.config.databaseName | string | `"dbname"` |  |
+| bens.config.databasePasswordSecretKey | string | `"password"` |  |
+| bens.config.databasePort | int | `5432` |  |
+| bens.config.databaseUrl | string | `nil` |  |
+| bens.config.databaseUserSecretKey | string | `"username"` |  |
+| bens.config.file | string | `"{\n  \"subgraphs_reader\": {\n    \"networks\": {\n      \"11155111\": {\n        \"blockscout\": {\n          \"url\": \"https://eth-sepolia.blockscout.com\"\n        },\n        \"use_protocols\": [\n          \"ens\"\n        ]\n      }\n    },\n    \"protocols\": {\n      \"ens-sepolia\": {\n        \"tld_list\": [\"eth\"],\n        \"network_id\": 11155111,\n        \"subgraph_name\": \"ens-sepolia-subgraph\",\n        \"address_resolve_technique\": \"reverse_registry\",\n        \"native_token_contract\": \"0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85\",\n        \"meta\": {\n          \"short_name\": \"ENS (Testnet)\",\n          \"title\": \"Ethereum Name Service (Testnet)\",\n          \"description\": \"The Ethereum Name Service (ENS) is a distributed, open, and extensible naming system based on the Ethereum blockchain.\",\n          \"icon_url\": \"https://i.imgur.com/GOfUwCb.jpeg\",\n          \"docs_url\": \"https://docs.ens.domains/\"\n        }\n      }\n    }\n  }\n}\n"` |  |
+| bens.config.logLevel | string | `"info"` |  |
+| bens.config.metricsEnabled | string | `"false"` |  |
+| bens.config.serverListenAddr | string | `"0.0.0.0:8050"` |  |
+| bens.config.tracingFormat | string | `"json"` |  |
+| bens.env | string | `nil` |  |
+| bens.image.pullPolicy | string | `"Always"` |  |
+| bens.image.repository | string | `"ghcr.io/blockscout/bens"` |  |
+| bens.image.tag | string | `"main"` |  |
+| bens.ingress.annotations | object | `{}` |  |
+| bens.ingress.className | string | `""` |  |
+| bens.ingress.enabled | bool | `true` |  |
+| bens.ingress.hostname | string | `"chart-example.local"` |  |
+| bens.ingress.paths[0].path | string | `"/"` |  |
+| bens.ingress.paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| bens.ingress.tls.enabled | bool | `false` |  |
+| bens.livenessProbe.enabled | bool | `true` |  |
+| bens.livenessProbe.params.initialDelaySeconds | int | `30` |  |
+| bens.livenessProbe.params.periodSeconds | int | `60` |  |
+| bens.livenessProbe.params.timeoutSeconds | int | `5` |  |
+| bens.livenessProbe.path | string | `"/health"` |  |
+| bens.podAnnotations | object | `{}` |  |
+| bens.podSecurityContext | object | `{}` |  |
+| bens.readinessProbe.enabled | bool | `true` |  |
+| bens.readinessProbe.params.initialDelaySeconds | int | `30` |  |
+| bens.readinessProbe.params.periodSeconds | int | `30` |  |
+| bens.readinessProbe.params.timeoutSeconds | int | `5` |  |
+| bens.readinessProbe.path | string | `"/health"` |  |
+| bens.replicaCount | int | `1` |  |
+| bens.resources.limits.cpu | float | `0.25` |  |
+| bens.resources.limits.memory | string | `"0.5Gi"` |  |
+| bens.resources.requests.cpu | float | `0.25` |  |
+| bens.resources.requests.memory | string | `"0.5Gi"` |  |
+| bens.securityContext | object | `{}` |  |
+| bens.service.type | string | `"ClusterIP"` |  |
+| bens.serviceMonitor.enabled | bool | `true` |  |
+| bens.serviceMonitor.path | string | `"/metrics"` |  |
+| bens.serviceMonitor.portName | string | `"metrics"` |  |
+| bens.terminationGracePeriodSeconds | int | `60` |  |
+| fullnameOverride | string | `""` |  |
+| global.env | string | `"testing"` |  |
+| imagePullSecrets | list | `[]` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
 
-```console
-helm repo add blockscout https://blockscout.github.io/helm-charts
-helm repo update
-```
-
-_See [`helm repo`](https://helm.sh/docs/helm/helm_repo/) for command documentation._
-
-## Install Helm Chart
-
-```console
-helm install [RELEASE_NAME] blockscout/blockscout-ens
-```
-_See [configuration](#configuration) below._
-_See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation._
-## Uninstall Helm Chart
-
-```console
-helm uninstall [RELEASE_NAME]
-```
-_See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/) for command documentation._
-This removes all the Kubernetes components associated with the chart and deletes the release.
-
-## Upgrading Chart
-
-```console
-helm upgrade [RELEASE_NAME] blockscout/blockscout-ens
-```
-
-## Configuration
-
-See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing). To see all configurable options with detailed comments:
-
-```console
-helm show values blockscout/blockscout-ens
-```
-This chart does not contain default values for required ENV variables.
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.5.0](https://github.com/norwoodj/helm-docs/releases/v1.5.0)
