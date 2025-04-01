@@ -19,7 +19,7 @@ dependencies:
   - name: smart-contract-verification
     version: "0.1.1"
     repository: "file://../smart-contract-verification"
-    condition: smart-contract-verification.enabled 
+    condition: smart-contract-verification.enabled
 maintainers:
   - name: AntiD2ta
   - name: nmjustinchan
