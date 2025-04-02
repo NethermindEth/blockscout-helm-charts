@@ -96,6 +96,8 @@ A Helm chart that combines Blockscout stack with Smart Contract Verification ser
 | global.fullnameOverride | string | `""` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.nameOverride | string | `""` |  |
+| podMonitor.enabled | bool | `false` |  |
+| serviceMonitor.enabled | bool | `false` |  |
 | smart-contract-verification.enabled | bool | `true` |  |
 | smart-contract-verification.ethBytecodeDb.enabled | bool | `true` |  |
 | smart-contract-verification.ethBytecodeDb.extraEnv[0].name | string | `"ETH_BYTECODE_DB__SERVER__HTTP__ADDR"` |  |

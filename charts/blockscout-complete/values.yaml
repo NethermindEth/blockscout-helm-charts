@@ -221,3 +221,8 @@ global:
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
+
+serviceMonitor:
+  enabled: false
+podMonitor:
+  enabled: false
