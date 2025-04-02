@@ -24,7 +24,7 @@ A Helm chart for Kubernetes
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/blockscout/zilliqa-stakers-squid"` |  |
-| image.tag | string | `"0.1.0\""` |  |
+| image.tag | string | `"0.1.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
