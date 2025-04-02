@@ -1,0 +1,476 @@
+apiVersion: v1
+entries:
+  autoscout:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2025-04-02T17:55:50.321141+02:00"
+    description: A Helm chart for Kubernetes
+    digest: eed272924033318932a43e0900859d761f7c8e6d6bcccc7549ba16dba03e7a4f
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: autoscout
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/autoscout-0.4.2.tgz
+    version: 0.4.2
+  blockscout-admin:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2025-04-02T17:55:50.321905+02:00"
+    description: A Helm chart for Blockscout admin services - admin-rs, admin-ts,
+      contracts-info, metadata, token-info-extractor
+    digest: 6cc0013e9af5d61dcb675ed4e4b93a95e7183ff0334011e49b7e7fed7ae7a4be
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-admin
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-admin-1.3.2.tgz
+    version: 1.3.2
+  blockscout-allowance:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-02T17:55:50.322308+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 6e6d04c7cfeef4fd2686c89cf99b9d8134cc05b7e233eac5df15ca68a27fea4b
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-allowance
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-allowance-0.1.2.tgz
+    version: 0.1.2
+  blockscout-complete:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.325318+02:00"
+    dependencies:
+    - condition: blockscout-stack.enabled
+      name: blockscout-stack
+      repository: file://../blockscout-stack
+      version: 2.0.4
+    - condition: smart-contract-verification.enabled
+      name: smart-contract-verification
+      repository: file://../smart-contract-verification
+      version: 0.1.2
+    description: A Helm chart that combines Blockscout stack with Smart Contract Verification
+      services
+    digest: fc8a6edba8ae59a50f61dc180745f22d07046ca67b19ab5da4439454f2764259
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-complete
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-complete-0.1.2.tgz
+    version: 0.1.2
+  blockscout-ens:
+  - apiVersion: v2
+    appVersion: 1.5.3
+    created: "2025-04-02T17:55:50.3259+02:00"
+    description: A Helm chart to deploy Blockscout ens
+    digest: 13c7914752907d369e6a90806ba72529a60b802d77c7b0eeafa80aa1f5f97b7d
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-ens
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-ens-1.1.5.tgz
+    version: 1.1.5
+  blockscout-points:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.326528+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 80ed31312abc4538aeaa2223669adf70f9907fec8649d725eb705f8adb2a7ef9
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-points
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-points-0.2.2.tgz
+    version: 0.2.2
+  blockscout-proxy-verifier:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.326954+02:00"
+    description: A Helm chart to deploy Blockscout proxy-verifier
+    digest: 31a6fed1f236a8b572a305d213edc82fb3ef990c0321d68db454902d8b9b8585
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-proxy-verifier
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-proxy-verifier-1.1.3.tgz
+    version: 1.1.3
+  blockscout-revokescout:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.327351+02:00"
+    description: A Helm chart for Kubernetes
+    digest: f89dbd221b474d12f150286497c22132baad7a7c9caac0a6778abdeec4175495
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-revokescout
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-revokescout-1.0.2.tgz
+    version: 1.0.2
+  blockscout-stack:
+  - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2025-04-02T17:55:50.328573+02:00"
+    description: A Helm chart to deploy Blockscout stack
+    digest: 127dee994eb78b0125e6e2e71593015bd9fbbb326d61c10cdb181588239c8984
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-stack
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-stack-2.0.4.tgz
+    version: 2.0.4
+  chainscout:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-02T17:55:50.329021+02:00"
+    description: A Helm chart for Kubernetes
+    digest: dede38bf203d86fdf9e7de4c64d2c8dff2cc7f5aa45be09c92ad11cd48f47cca
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: chainscout
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/chainscout-0.1.2.tgz
+    version: 0.1.2
+  cloudflare-tunnel:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.329348+02:00"
+    description: A Helm chart for Cloudflare tunnel
+    digest: e59100d15173de9c8c17a4cec683b4d8c20f0d64d07064f59dfb2a52b3ebee8e
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/cloudflare-tunnel-1.0.2.tgz
+    version: 1.0.2
+  da-indexer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-02T17:55:50.329786+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 5c3e2fe5a7eff02a434dcb4790bfd9e85b15b355713440b23a009614cbb53957
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: da-indexer
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/da-indexer-0.1.2.tgz
+    version: 0.1.2
+  dshackle:
+  - apiVersion: v2
+    appVersion: 0.15.0
+    created: "2025-04-02T17:55:50.330101+02:00"
+    description: A Helm chart for Kubernetes
+    digest: d36f1d55b949d022c1e29595527da597899127855880b3f88d15b6dad159401a
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: dshackle
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/dshackle-0.1.2.tgz
+    version: 0.1.2
+  eth-rpc-exporter:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.330762+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 0e822e959c9e79c32142b9d8bf322ae0c905f65880f7c7ca4b9af50442357f37
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: eth-rpc-exporter
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/eth-rpc-exporter-1.0.2.tgz
+    version: 1.0.2
+  eth-tx-summary-api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.331217+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 016584142d24b257e5d5797b3133e365867cad9392a44f6668d15ec48afee935
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: eth-tx-summary-api
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/eth-tx-summary-api-0.2.2.tgz
+    version: 0.2.2
+  graph-node:
+  - apiVersion: v2
+    appVersion: 0.32.0
+    created: "2025-04-02T17:55:50.331472+02:00"
+    description: A Helm chart for Kubernetes to run graph-node
+    digest: 9b3cc8325165444923c30340c4f76038b7a79ceb0a5334895ae0a39adf65eb2a
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: graph-node
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/graph-node-0.1.4.tgz
+    version: 0.1.4
+  image-generator:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.33174+02:00"
+    description: A Helm chart for Kubernetes
+    digest: ec8a36d13575e759d1efaee05e3e0d78e2f52aa2d33b983281db424f4fc6c0c1
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: image-generator
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/image-generator-0.1.2.tgz
+    version: 0.1.2
+  metabase:
+  - apiVersion: v2
+    appVersion: 0.46.6
+    created: "2025-04-02T17:55:50.332041+02:00"
+    description: A Helm chart for Metabase Application
+    digest: 3ec7747bc5463711f560e6da23282b59248cfd72cceb0b3decc9b40bd487cf1a
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: metabase
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/metabase-1.0.2.tgz
+    version: 1.0.2
+  multichain-aggregator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.332522+02:00"
+    description: A Helm chart for Kubernetes
+    digest: bc0863545fbcfd793226a47d1399888d880aefed0f61931c89f741719c6b2123
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: multichain-aggregator
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/multichain-aggregator-0.3.3.tgz
+    version: 0.3.3
+  pganalyzer:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.332798+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 0afa9714cc7ce440730407d256ccbe46f5db472a02e852877dcbef78ec24a740
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: pganalyzer
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/pganalyzer-0.3.4.tgz
+    version: 0.3.4
+  quicknode-marketplace-integration:
+  - apiVersion: v2
+    appVersion: v0.1.0
+    created: "2025-04-02T17:55:50.333119+02:00"
+    description: A Helm chart for Kubernetes
+    digest: f825eec51cd80f53885a1deff7b004a0c72fc23d001e245c19dcdc0f5db97d2d
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: quicknode-marketplace-integration
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/quicknode-marketplace-integration-0.1.9.tgz
+    version: 0.1.9
+  redstone-mud:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.333475+02:00"
+    description: A Helm chart for Redstone MUD service
+    digest: 89a601de7e94255ec8c74746b0a16af456174b17dea60e4e40eed62714377604
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: redstone-mud
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/redstone-mud-0.1.2.tgz
+    version: 0.1.2
+  remix-project:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.333762+02:00"
+    description: A Helm chart to run Remix Project
+    digest: d8af91b657bf057511ed4f0d287116c5c1a3b67da4a660dafaae4813f98704b2
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: remix-project
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/remix-project-0.1.3.tgz
+    version: 0.1.3
+  rpc-node:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.334312+02:00"
+    description: A Helm chart for RPC node and consensus
+    digest: e1726de528df4266234864c425f57cf4e1e2fb061305155270b0983ebb5c4846
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: rpc-node
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/rpc-node-0.4.3.tgz
+    version: 0.4.3
+  smart-contract-verification:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-02T17:55:50.334821+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 8cee47d1dffbce492be739d011d1c2155ccb111f91efe613832720a6211962f4
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: smart-contract-verification
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/smart-contract-verification-0.1.2.tgz
+    version: 0.1.2
+  smart-guessr:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.335072+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 64da270fde3343f9a5dd8efc6913f2c499542dc61deb4a9fa567bd7acad60cb1
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: smart-guessr
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/smart-guessr-0.1.2.tgz
+    version: 0.1.2
+  sql-exporter:
+  - apiVersion: v1
+    appVersion: 2.10.0
+    created: "2025-04-02T17:55:50.335841+02:00"
+    description: Prometheus exporter which allows collecting metrics from database
+      queries, at specified time intervals
+    digest: 39c6c1ad7477633ca4a01b4597789cdbf7db31aeaa57d8db97a302f7bab4ec32
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: sql-exporter
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/sql-exporter-0.1.4.tgz
+    version: 0.1.4
+  swapscout:
+  - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2025-04-02T17:55:50.336259+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 05c1a6601ee61c7e4c452c956d9f4f0c8249a24d6e08d69bff6a372f87d83999
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: swapscout
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/swapscout-0.1.3.tgz
+    version: 0.1.3
+  tracker:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-02T17:55:50.336598+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 665d0311b84474cbdadb4c538c38ef614ddb15d23d1fd3ab8e5c514127a6b9ee
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: tracker
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/tracker-0.1.2.tgz
+    version: 0.1.2
+  verification-app:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-02T17:55:50.336934+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 690f7cd4cdd1bd2b688b96b3bbecb2d2f113139df6b02d224ff22ebf27f5a549
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: verification-app
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/verification-app-0.1.3.tgz
+    version: 0.1.3
+  visualizer:
+  - apiVersion: v2
+    appVersion: v0.2.1
+    created: "2025-04-02T17:55:50.337205+02:00"
+    description: A Helm chart for Kubernetes
+    digest: a7f9b13593f80c9906dddf07fbb3bf6439abacc959457d59000f2ef4360aed25
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: visualizer
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/visualizer-0.1.2.tgz
+    version: 0.1.2
+  yopass:
+  - apiVersion: v2
+    appVersion: 11.5.1
+    created: "2025-04-02T17:55:50.337458+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 86d36a08a005f14fcf50c190083b8b2ba56189dc2e82d097491747851d385c7d
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: yopass
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/yopass-0.1.2.tgz
+    version: 0.1.2
+  zilliqa-validators-indexer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-02T17:55:50.337746+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 19802663d3953b40045cb682fedaf3247a334c5fe64d64746cfb71cdd1319489
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: zilliqa-validators-indexer
+    type: application
+    urls:
+    - https://nethermindeth.github.io/blockscout-helm-charts/zilliqa-validators-indexer-0.1.2.tgz
+    version: 0.1.2
+generated: "2025-04-02T17:55:50.320217+02:00"
