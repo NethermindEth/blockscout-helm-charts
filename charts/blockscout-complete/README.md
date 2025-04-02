@@ -76,8 +76,6 @@ A Helm chart that combines Blockscout stack with Smart Contract Verification ser
 | blockscout-stack.config.testnet | bool | `false` |  |
 | blockscout-stack.enabled | bool | `true` |  |
 | blockscout-stack.frontend.enabled | bool | `true` |  |
-| blockscout-stack.frontend.extraEnv[0].name | string | `"NEXT_PUBLIC_VERIFICATION_MICROSERVICE_URL"` |  |
-| blockscout-stack.frontend.extraEnv[0].value | string | `"https://$(RELEASE_NAME)-smart-contract-verification-verifier:8050"` |  |
 | blockscout-stack.frontend.image.pullPolicy | string | `"IfNotPresent"` |  |
 | blockscout-stack.frontend.image.repository | string | `"ghcr.io/blockscout/frontend"` |  |
 | blockscout-stack.frontend.image.tag | string | `"latest"` |  |

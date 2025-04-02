@@ -95,9 +95,9 @@ blockscout-stack:
       pullPolicy: IfNotPresent
 
     # Frontend environment variables for verification integration
-    extraEnv:
-      - name: NEXT_PUBLIC_VERIFICATION_MICROSERVICE_URL
-        value: "https://$(RELEASE_NAME)-smart-contract-verification-verifier:8050"
+    # extraEnv:
+    #   - name: NEXT_PUBLIC_VERIFICATION_MICROSERVICE_URL
+    #     value: "https://$(RELEASE_NAME)-smart-contract-verification-verifier:8050"
 
     # Configure service for Frontend
     service:

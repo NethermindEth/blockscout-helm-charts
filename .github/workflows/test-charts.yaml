@@ -54,21 +54,53 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
-        run: >
-          ct install
-          --config ct.yaml
-          --target-branch ${{ github.event.repository.default_branch }}
-          --excluded-charts ethereum-node
-          --excluded-charts beaconchain-explorer
-          --excluded-charts fauceth
-          --excluded-charts eth-faucet
-          --excluded-charts genesis-generator
-          --excluded-charts beacon-metrics-gazer
-          --excluded-charts tracoor-server
-          --excluded-charts tracoor-agent
-          --excluded-charts xatu-cl-mimicry
-          --excluded-charts taiko-node
-          --excluded-charts taiko-client
-          --excluded-charts taiko-client-proposer
-          --excluded-charts taiko-client-prover
-          --excluded-charts taiko-geth
+        run: |
+          # Define excluded charts
+          excluded_charts=(
+            "autoscout"
+            "chainscout"
+            "cloudflare-tunnel"
+            "da-indexer"
+            "dshackle"
+            "eth-rpc-exporter"
+            "eth-tx-summary-api"
+            "graph-node"
+            "image-generator"
+            "metabase"
+            "multichain-aggregator"
+            "pganalyzer"
+            "quicknode-marketplace"
+            "redstone-mud"
+            "remix-project"
+            "rpc-node"
+            "smart-guessr"
+            "sql-exporter"
+            "swapscout"
+            "tracker"
+            "verification-app"
+            "visualizer"
+            "yopass"
+            "zilliqa-validators-indexer"
+          )
+
+          # Function to check if a chart is excluded
+          is_excluded() {
+            local chart=$1
+            for excluded in "${excluded_charts[@]}"; do
+              if [[ "$chart" == "$excluded" ]]; then
+                return 0
+              fi
+            done
+            return 1
+          }
+
+          # Process each changed chart
+          for chart in $(ct list-changed --config ct.yaml --target-branch ${{ github.event.repository.default_branch }}); do
+            if is_excluded "$chart"; then
+              echo "Skipping excluded chart: $chart"
+              continue
+            fi
+
+            echo "Installing chart: $chart"
+            ct install --config ct.yaml --target-branch ${{ github.event.repository.default_branch }}
+          done
