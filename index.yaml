@@ -46,6 +46,29 @@ entries:
   blockscout-complete:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-04-02T16:06:59.342139156Z"
+    dependencies:
+    - condition: blockscout-stack.enabled
+      name: blockscout-stack
+      repository: file://../blockscout-stack
+      version: 2.0.5
+    - condition: smart-contract-verification.enabled
+      name: smart-contract-verification
+      repository: file://../smart-contract-verification
+      version: 0.1.3
+    description: A Helm chart that combines Blockscout stack with Smart Contract Verification
+      services
+    digest: 3c3a6ff7191773de2dfc296b7f0df6eda49d62368f923fa610d74b0aeb332d01
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-complete
+    type: application
+    urls:
+    - https://github.com/NethermindEth/blockscout-helm-charts/releases/download/blockscout-complete-0.1.3/blockscout-complete-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-04-02T17:55:50.325318+02:00"
     dependencies:
     - condition: blockscout-stack.enabled
@@ -124,6 +147,19 @@ entries:
     - https://nethermindeth.github.io/blockscout-helm-charts/blockscout-revokescout-1.0.2.tgz
     version: 1.0.2
   blockscout-stack:
+  - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2025-04-02T16:06:59.475942451Z"
+    description: A Helm chart to deploy Blockscout stack
+    digest: 582020aee6be85245d2d3e631970f8fb7d37429eb7d3faaf25594538da0dbb76
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-stack
+    type: application
+    urls:
+    - https://github.com/NethermindEth/blockscout-helm-charts/releases/download/blockscout-stack-2.0.5/blockscout-stack-2.0.5.tgz
+    version: 2.0.5
   - apiVersion: v2
     appVersion: 7.0.0
     created: "2025-04-02T17:55:50.328573+02:00"
@@ -350,6 +386,19 @@ entries:
   smart-contract-verification:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-04-02T16:06:59.610099634Z"
+    description: A Helm chart for Kubernetes
+    digest: d13da73dacc097631b075f35075c5ef0e71ed8ad8035db93d1c583ac42711fa6
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: smart-contract-verification
+    type: application
+    urls:
+    - https://github.com/NethermindEth/blockscout-helm-charts/releases/download/smart-contract-verification-0.1.3/smart-contract-verification-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-04-02T17:55:50.334821+02:00"
     description: A Helm chart for Kubernetes
     digest: 8cee47d1dffbce492be739d011d1c2155ccb111f91efe613832720a6211962f4
@@ -473,4 +522,4 @@ entries:
     urls:
     - https://nethermindeth.github.io/blockscout-helm-charts/zilliqa-validators-indexer-0.1.2.tgz
     version: 0.1.2
-generated: "2025-04-02T17:55:50.320217+02:00"
+generated: "2025-04-02T16:06:59.610126003Z"
