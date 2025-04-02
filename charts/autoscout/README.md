@@ -1,0 +1,105 @@
+# autoscout
+
+![Version: 0.4.2](https://img.shields.io/badge/Version-0.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
+
+A Helm chart for Kubernetes
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| config.auth0.audience | string | `""` |  |
+| config.auth0.client_id | string | `""` |  |
+| config.auth0.domain | string | `""` |  |
+| config.auth0.management.audience | string | `""` |  |
+| config.auth0.management.client_id | string | `""` |  |
+| config.auth0.management.secret | string | `""` |  |
+| config.coinbase.api_key | string | `""` |  |
+| config.coinbase.webhook_secret | string | `""` |  |
+| config.database.dbname | string | `""` |  |
+| config.database.existingSecret | string | `""` |  |
+| config.database.existingSecretPasswordKey | string | `"password"` |  |
+| config.database.existingSecretUsernameKey | string | `"username"` |  |
+| config.database.host | string | `""` |  |
+| config.database.options | string | `""` |  |
+| config.database.password | string | `""` |  |
+| config.database.port | int | `5432` |  |
+| config.database.username | string | `""` |  |
+| config.github.branch | string | `nil` |  |
+| config.github.owner | string | `nil` |  |
+| config.github.repo | string | `nil` |  |
+| config.github.token | string | `"default-token"` |  |
+| config.logLevel | string | `"info"` |  |
+| config.logLokiHost | string | `"http://loki.host:65535"` |  |
+| config.sendgrid.api_key | string | `""` |  |
+| frontend.enabled | bool | `false` |  |
+| frontend.image.pullPolicy | string | `"IfNotPresent"` |  |
+| frontend.image.repository | string | `"ghcr.io/blockscout/autoscout-frontend"` |  |
+| frontend.image.tag | string | `"latest"` |  |
+| frontend.ingress.annotations | object | `{}` |  |
+| frontend.ingress.className | string | `""` |  |
+| frontend.ingress.enabled | bool | `false` |  |
+| frontend.ingress.hosts[0].host | string | `"chart-example.local"` |  |
+| frontend.ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| frontend.ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| frontend.ingress.tls | list | `[]` |  |
+| frontend.livenessProbe.httpGet.path | string | `"/healthz"` |  |
+| frontend.livenessProbe.httpGet.port | string | `"http"` |  |
+| frontend.podSecurityContext | object | `{}` |  |
+| frontend.readinessProbe.httpGet.path | string | `"/healthz"` |  |
+| frontend.readinessProbe.httpGet.port | string | `"http"` |  |
+| frontend.replicaCount | int | `1` |  |
+| frontend.resources.limits.cpu | string | `"200m"` |  |
+| frontend.resources.limits.memory | string | `"256Mi"` |  |
+| frontend.resources.requests.cpu | string | `"100m"` |  |
+| frontend.resources.requests.memory | string | `"128Mi"` |  |
+| frontend.securityContext | object | `{}` |  |
+| frontend.service.port | int | `3000` |  |
+| frontend.service.type | string | `"ClusterIP"` |  |
+| fullnameOverride | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"ghcr.io/blockscout/autoscout"` |  |
+| image.tag | string | `"latest"` |  |
+| imagePullSecrets | list | `[]` |  |
+| ingress.annotations | object | `{}` |  |
+| ingress.className | string | `""` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0].host | string | `"chart-example.local"` |  |
+| ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| ingress.tls | list | `[]` |  |
+| livenessProbe.httpGet.path | string | `"/health"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| podAnnotations | object | `{}` |  |
+| podLabels | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| readinessProbe.httpGet.path | string | `"/health"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
+| replicaCount | int | `1` |  |
+| resources.limits.cpu | string | `"100m"` |  |
+| resources.limits.memory | string | `"128Mi"` |  |
+| resources.requests.cpu | string | `"100m"` |  |
+| resources.requests.memory | string | `"128Mi"` |  |
+| securityContext | object | `{}` |  |
+| service.port | int | `8050` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.automount | bool | `true` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
+| volumeMounts | list | `[]` |  |
+| volumes | list | `[]` |  |
+
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.14.2](https://github.com/norwoodj/helm-docs/releases/v1.14.2)

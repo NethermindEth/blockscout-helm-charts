@@ -1,49 +1,69 @@
 # blockscout-proxy-verifier
 
-A Helm chart to deploy Blockscout ENC application to kubernetes cluster
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-## Prerequisites
+A Helm chart to deploy Blockscout proxy-verifier
 
-- Kubernetes 1.19+
-- Helm 3+
-<!-- - PostgreSQL version 12 to 14
-- Redis (if accounts blockscout feature is enabled) -->
+## Maintainers
 
-## Get Helm Repository Info
+| Name | Email | Url |
+| ---- | ------ | --- |
+| AntiD2ta |  |  |
+| nmjustinchan |  |  |
 
-```console
-helm repo add blockscout https://blockscout.github.io/helm-charts
-helm repo update
-```
+## Values
 
-_See [`helm repo`](https://helm.sh/docs/helm/helm_repo/) for command documentation._
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| fullnameOverride | string | `""` |  |
+| global.env | string | `"testing"` |  |
+| imagePullSecrets | list | `[]` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| proxyVerifier.config | list | `[]` |  |
+| proxyVerifier.env.PROXY_VERIFIER__ETH_BYTECODE_DB__HTTP_URL | string | `"https://eth-bytecode-db-test.k8s-dev.blockscout.com"` |  |
+| proxyVerifier.env.PROXY_VERIFIER__ETH_BYTECODE_DB__PROBE_URL | string | `"true"` |  |
+| proxyVerifier.envFromSecret | object | `{}` |  |
+| proxyVerifier.files.enabled | bool | `false` |  |
+| proxyVerifier.files.list | list | `[]` |  |
+| proxyVerifier.image.pullPolicy | string | `"Always"` |  |
+| proxyVerifier.image.repository | string | `"ghcr.io/blockscout/proxy-verifier"` |  |
+| proxyVerifier.image.tag | string | `"main"` |  |
+| proxyVerifier.ingress.annotations | object | `{}` |  |
+| proxyVerifier.ingress.className | string | `""` |  |
+| proxyVerifier.ingress.enabled | bool | `false` |  |
+| proxyVerifier.ingress.hostname | string | `"chart-example.local"` |  |
+| proxyVerifier.ingress.paths[0].path | string | `"/"` |  |
+| proxyVerifier.ingress.paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| proxyVerifier.ingress.tls.enabled | bool | `false` |  |
+| proxyVerifier.livenessProbe.enabled | bool | `true` |  |
+| proxyVerifier.livenessProbe.params.initialDelaySeconds | int | `30` |  |
+| proxyVerifier.livenessProbe.params.periodSeconds | int | `60` |  |
+| proxyVerifier.livenessProbe.params.timeoutSeconds | int | `5` |  |
+| proxyVerifier.livenessProbe.path | string | `"/health"` |  |
+| proxyVerifier.podAnnotations | object | `{}` |  |
+| proxyVerifier.podSecurityContext | object | `{}` |  |
+| proxyVerifier.readinessProbe.enabled | bool | `true` |  |
+| proxyVerifier.readinessProbe.params.initialDelaySeconds | int | `30` |  |
+| proxyVerifier.readinessProbe.params.periodSeconds | int | `30` |  |
+| proxyVerifier.readinessProbe.params.timeoutSeconds | int | `5` |  |
+| proxyVerifier.readinessProbe.path | string | `"/health"` |  |
+| proxyVerifier.replicaCount | int | `1` |  |
+| proxyVerifier.resources.limits.cpu | float | `0.25` |  |
+| proxyVerifier.resources.limits.memory | string | `"0.5Gi"` |  |
+| proxyVerifier.resources.requests.cpu | float | `0.25` |  |
+| proxyVerifier.resources.requests.memory | string | `"0.5Gi"` |  |
+| proxyVerifier.securityContext | object | `{}` |  |
+| proxyVerifier.service.type | string | `"ClusterIP"` |  |
+| proxyVerifier.serviceMonitor.enabled | bool | `true` |  |
+| proxyVerifier.serviceMonitor.path | string | `"/metrics"` |  |
+| proxyVerifier.serviceMonitor.portName | string | `"metrics"` |  |
+| proxyVerifier.terminationGracePeriodSeconds | int | `60` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
 
-## Install Helm Chart
-
-```console
-helm install [RELEASE_NAME] blockscout/blockscout-proxy-verifier
-```
-_See [configuration](#configuration) below._
-_See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation._
-## Uninstall Helm Chart
-
-```console
-helm uninstall [RELEASE_NAME]
-```
-_See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/) for command documentation._
-This removes all the Kubernetes components associated with the chart and deletes the release.
-
-## Upgrading Chart
-
-```console
-helm upgrade [RELEASE_NAME] blockscout/blockscout-proxy-verifier
-```
-
-## Configuration
-
-See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing). To see all configurable options with detailed comments:
-
-```console
-helm show values blockscout/blockscout-proxy-verifier
-```
-This chart does not contain default values for required ENV variables.
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.14.2](https://github.com/norwoodj/helm-docs/releases/v1.14.2)

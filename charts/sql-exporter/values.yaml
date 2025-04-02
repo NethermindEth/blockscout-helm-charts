@@ -26,12 +26,12 @@ service:
 ## Resources to allocate to the pods
 ##
 resources:
- limits:
-   cpu: 100m
-   memory: 100Mi
- requests:
-   cpu: 100m
-   memory: 100Mi
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  requests:
+    cpu: 100m
+    memory: 100Mi
 
 ## Deployment strategy
 ##

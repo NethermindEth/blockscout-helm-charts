@@ -1,0 +1,234 @@
+global:
+  nameOverride: "bs-test"
+  fullnameOverride: "bs-test"
+  wait: false
+  timeout: 60
+
+blockscout-stack:
+  enabled: true
+  nameOverride: "bs-test-stack"
+  fullnameOverride: "bs-test-stack"
+  serviceAccount:
+    create: true
+    name: "bs-test-stack"
+  config:
+    network:
+      id: 1
+      name: Ether
+      shortname: Ether
+      currency:
+        name: Ether
+        symbol: ETH
+        decimals: 18
+        dualToken: false
+    account:
+      enabled: false
+    testnet: false
+    nameService:
+      enabled: false
+      url: ""
+    prometheus:
+      enabled: false
+
+  blockscout:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: blockscout/blockscout
+      pullPolicy: IfNotPresent
+      tag: "latest"
+    extraEnv:
+      - name: DATABASE_URL
+        value: "postgresql://postgres:postgres@{{ .Release.Name }}-postgresql:5432/blockscout?ssl=false"
+      - name: VERIFY_WITH_ETHBYTECODE_DB_ENABLED
+        value: "true"
+      - name: SMART_CONTRACT_VERIFIER_ENABLED
+        value: "true"
+      - name: SMART_CONTRACT_VERIFIER_URL
+        value: "http://{{ .Release.Name }}-verification-verifier:8050"
+      - name: SMART_CONTRACT_VERIFIER_GRPC_URL
+        value: "{{ .Release.Name }}-verification-verifier:8051"
+      - name: ETH_BYTECODE_DB_URL
+        value: "http://{{ .Release.Name }}-verification-bytecode-db:8050"
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+    livenessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 20
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+
+  frontend:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: ghcr.io/blockscout/frontend
+      tag: latest
+      pullPolicy: IfNotPresent
+    extraEnv:
+      - name: NEXT_PUBLIC_API_HOST
+        value: "http://{{ .Release.Name }}-blockscout-stack-blockscout:4000"
+      - name: NEXT_PUBLIC_APP_HOST
+        value: "http://{{ .Release.Name }}-blockscout-stack-frontend:3000"
+      - name: NEXT_PUBLIC_NETWORK_ID
+        value: "1"
+      - name: NEXT_PUBLIC_NETWORK_NAME
+        value: "Test Network"
+      - name: NEXT_PUBLIC_NETWORK_SHORT_NAME
+        value: "Test"
+      - name: NEXT_PUBLIC_NETWORK_CURRENCY_NAME
+        value: "Ether"
+      - name: NEXT_PUBLIC_NETWORK_CURRENCY_SYMBOL
+        value: "ETH"
+      - name: NEXT_PUBLIC_NETWORK_CURRENCY_DECIMALS
+        value: "18"
+      - name: NEXT_PUBLIC_SITEMAP_GENERATION
+        value: "false"
+      - name: NEXT_PUBLIC_IS_TESTNET
+        value: "true"
+      - name: NEXT_PUBLIC_API_SPEC_URL
+        value: ""
+      - name: NEXT_PUBLIC_API_BASE_PATH
+        value: "/api"
+      - name: NEXT_PUBLIC_FEATURED_NETWORKS
+        value: "[]"
+      - name: NEXT_PUBLIC_NETWORK_VERIFICATION_TYPE
+        value: "validation"
+      - name: NEXT_PUBLIC_MARKETPLACE_CONFIG_URL
+        value: ""
+      - name: NEXT_PUBLIC_MARKETPLACE_SUBMIT_FORM
+        value: ""
+      - name: NEXT_PUBLIC_NETWORK_RPC_URL
+        value: ""
+      - name: NEXT_PUBLIC_HOMEPAGE_CHARTS
+        value: "[]"
+      - name: NEXT_PUBLIC_HOMEPAGE_PLATE_TEXT_COLOR
+        value: "white"
+      - name: NEXT_PUBLIC_NETWORK_LOGO
+        value: ""
+      - name: NEXT_PUBLIC_NETWORK_ICON
+        value: ""
+      - name: NEXT_PUBLIC_OG_IMAGE_URL
+        value: ""
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+    livenessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 20
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: 200m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+
+smart-contract-verification:
+  enabled: true
+  nameOverride: "bs-test-verification"
+  fullnameOverride: "bs-test-verification"
+  serviceAccount:
+    create: true
+    name: "bs-test-verification"
+  sigProvider:
+    replicaCount: 1
+    image:
+      repository: ghcr.io/blockscout/sig-provider
+      pullPolicy: IfNotPresent
+      tag: "latest"
+    nameOverride: "sig-provider"
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+    livenessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 20
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+
+  smartContractVerifier:
+    replicaCount: 1
+    image:
+      repository: ghcr.io/blockscout/smart-contract-verifier
+      pullPolicy: IfNotPresent
+      tag: "latest"
+    nameOverride: "verifier"
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+    livenessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 20
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 512Mi
+
+  ethBytecodeDb:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: ghcr.io/blockscout/eth-bytecode-db
+      pullPolicy: IfNotPresent
+      tag: "latest"
+    nameOverride: "bytecode-db"
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+    livenessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 20
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: 200m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+    extraEnv:
+      - name: ETH_BYTECODE_DB__SERVER__HTTP__ADDR
+        value: "0.0.0.0:8050"
+      - name: ETH_BYTECODE_DB__VERIFICATION__VERIFIER_URLS__0
+        value: "http://{{ .Release.Name }}-verification-verifier:8050"
+      - name: ETH_BYTECODE_DB__DATABASE__URL
+        value: "postgresql://postgres:postgres@{{ .Release.Name }}-postgresql:5432/blockscout?ssl=false"
+
+postgresql:
+  enabled: true
+  nameOverride: "postgresql"
+  auth:
+    username: postgres
+    password: postgres
+    database: blockscout
+  primary:
+    persistence:
+      enabled: false
+      size: 1Gi
+  service:
+    type: ClusterIP
+    port: 5432

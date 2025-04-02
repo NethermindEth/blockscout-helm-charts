@@ -41,10 +41,10 @@ api:
   systemId: ""
 
 db:
-  host:
-  name: # "db1,db2,db3"
-  username:
-  password:
+  host: ""
+  name: "" # "db1,db2,db3"
+  username: ""
+  password: ""
 
 volumes:
   - name: tmp

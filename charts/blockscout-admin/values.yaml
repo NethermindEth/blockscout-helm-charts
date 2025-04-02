@@ -32,7 +32,7 @@ adminRs:
     #- name: SOME_SECRET_ENV
     #  value: secret_value
   config:
-    databaseUrl: #postgres://user:password@hostname/database_name
+    databaseUrl: "" #"postgres://user:password@hostname/database_name"
   resources:
     limits:
       cpu: 250m
@@ -111,14 +111,12 @@ contractsInfo:
   environment: {}
     #- name: SOME_ENV
     #  value: value
-  envFromSecret: {}
-    #- name: SOME_SECRET_ENV
-    #  value: secret_value
+  envFromSecret: []
   config:
-    databaseUrl: #postgres://user:password@hostname/database_name
+    databaseUrl: "" #"postgres://user:password@hostname/database_name"
     apiKeys:
-      adminjs:
-      extractor1:
+      adminjs: "default-api-key"
+      extractor1: "default-extractor-key"
   resource:
     limits:
       memory: "256Mi"
@@ -253,12 +251,9 @@ config:
     enabled: false
     port: 6060
     path: /metrics
-  network:
-    #- name:
-    #  label:
-    #  url:
-    #  id:
-    #  apiKey:
+  network: []
+    # - id: "1"
+    #   apiKey: "default-network-api-key"
 
 nodeSelector: {}
 

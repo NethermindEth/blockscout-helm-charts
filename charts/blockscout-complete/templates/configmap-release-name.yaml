@@ -5,4 +5,4 @@ metadata:
   labels:
     {{- include "blockscout-complete.labels" . | nindent 4 }}
 data:
-  RELEASE_NAME: {{ .Release.Name }} 
+  RELEASE_NAME: {{ .Release.Name }}
