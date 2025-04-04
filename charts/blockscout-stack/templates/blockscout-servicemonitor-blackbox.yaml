@@ -18,9 +18,11 @@ spec:
       target:
       - {{ $url }}
     metricRelabelings:
-      - targetLabel: instance
+      - action: replace
+        targetLabel: instance
         replacement: {{ $url }}
-      - targetLabel: target
+      - action: replace
+        targetLabel: target
         replacement: {{ include "blockscout-stack.fullname" . }}
   namespaceSelector:
     any: true
