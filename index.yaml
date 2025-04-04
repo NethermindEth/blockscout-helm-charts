@@ -172,6 +172,19 @@ entries:
   blockscout-stack:
   - apiVersion: v2
     appVersion: 7.0.0
+    created: "2025-04-04T14:05:01.481358837Z"
+    description: A Helm chart to deploy Blockscout stack
+    digest: 311a0505bb418188a458fb33d037f374335aefeb36e64c8a16f79bb4f0388ea6
+    maintainers:
+    - name: AntiD2ta
+    - name: nmjustinchan
+    name: blockscout-stack
+    type: application
+    urls:
+    - https://github.com/NethermindEth/blockscout-helm-charts/releases/download/blockscout-stack-2.0.7/blockscout-stack-2.0.7.tgz
+    version: 2.0.7
+  - apiVersion: v2
+    appVersion: 7.0.0
     created: "2025-04-04T11:05:56.953960093Z"
     description: A Helm chart to deploy Blockscout stack
     digest: d3432c10eae83c69cbd72a243dc23287700ed29d64d098594f1461eef9cf0aaa
@@ -558,4 +571,4 @@ entries:
     urls:
     - https://nethermindeth.github.io/blockscout-helm-charts/zilliqa-validators-indexer-0.1.2.tgz
     version: 0.1.2
-generated: "2025-04-04T11:05:56.953984819Z"
+generated: "2025-04-04T14:05:01.48138211Z"
