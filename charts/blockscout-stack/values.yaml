@@ -222,6 +222,8 @@ frontend:
   ##
   securityContext: {}
 
+  port: 3000
+
   service:
     type: ClusterIP
     port: 80

@@ -15,7 +15,7 @@ A Helm chart that combines Blockscout stack with Smart Contract Verification ser
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../blockscout-stack | blockscout-stack | 2.0.6 |
+| file://../blockscout-stack | blockscout-stack | 2.0.7 |
 | file://../smart-contract-verification | smart-contract-verification | 0.1.3 |
 
 ## Values
